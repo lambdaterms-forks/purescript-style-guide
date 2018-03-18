@@ -4,6 +4,8 @@
 
 Let's try to use natefaubion's coding style from libraries like [`purescript-variant`](https://github.com/natefaubion/purescript-variant) or [`purescript-run`](https://github.com/natefaubion/purescript-run) as a reference pint and update this coding style accordingly.
 
+Additionally there is prefered signature formatting defined (which was garyb original proposition).
+
 ## Original Preface
 
 This is a style guide for the language PureScript based on conventions used in
