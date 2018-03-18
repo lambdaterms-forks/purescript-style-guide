@@ -30,7 +30,7 @@ This style guide is licensed under the [Creative Commons Zero license](https://c
   * [2.2. Use upper camel case for type names](#22-use-upper-camel-case-for-type-names)
   * [2.3. Use all capitals for effect names](#23-use-all-capitals-for-effect-names)
   * [2.4. Do not use all capitals for acronyms](#24-do-not-use-all-capitals-for-acronyms)
-  * [2.5. Use the singular for module names](#25-use-the-singular-for-module-names)
+  * [2.5. Prefer singular for module names](#25-prefer-singular-for-module-names)
   * [2.6. Use underscore when naming SProxy and optics](#26-use-underscore-when-naming-sproxy-and-optics)
 - [3. Imports](#3-imports)
   * [3.1. Group imported modules by origin](#31-group-imported-modules-by-origin)
@@ -240,7 +240,7 @@ catMaybes :: forall a. List (Maybe a) -> List a
 catMaybes =
   case _ of
     Nil -> Nil
-    Nothing : xs -> catMaybes xs
+    Nothing : xs -> catMaybes xsUse the
     Just x : xs -> x : catMaybes xs
 ```
 
@@ -304,14 +304,15 @@ Two letter acronyms should have both letters capitalized.
 * `rgbToHsl`
 * `ST`
 
-### 2.5. Use the singular for module names
+### 2.5. Prefer singular for module names
 
-Module names should be in the singular.
+Module names should be in the singular when module is a namespace for a datatype (like `Data.String`). In other case try to use what reads well and be consistent
 
 #### Examples
 
 * Use `Data.String` instead of `Data.Strings`.
 * Use `Data.Function` instead of `Data.Functions`.
+* `Combinators`, `Utils`, `Helpers` are good examples of correct plurar module names as they sound more natural.
 
 ### 2.6 Use underscore when naming `SProxy` and optics
 
