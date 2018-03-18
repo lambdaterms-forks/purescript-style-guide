@@ -31,6 +31,7 @@ This style guide is licensed under the [Creative Commons Zero license](https://c
   * [2.3. Use all capitals for effect names](#23-use-all-capitals-for-effect-names)
   * [2.4. Do not use all capitals for acronyms](#24-do-not-use-all-capitals-for-acronyms)
   * [2.5. Use the singular for module names](#25-use-the-singular-for-module-names)
+  * [2.6. Use underscore when naming SProxy and optics](#26-use-underscore-when-naming-sproxy-and-optics)
 - [3. Imports](#3-imports)
   * [3.1. Group imported modules by origin](#31-group-imported-modules-by-origin)
   * [3.2. Sort imports alphabetically](#32-sort-imports-alphabetically)
@@ -312,6 +313,21 @@ Module names should be in the singular.
 * Use `Data.String` instead of `Data.Strings`.
 * Use `Data.Function` instead of `Data.Functions`.
 
+### 2.6 Use underscore when naming `SProxy` and optics
+
+Use `_` as prefix of variable names for `SProxy` values and optics ("it’s reminiscent of section syntax for properties
+`_.foo`").
+
+#### Examples
+
+```purescript
+-- SProxy value
+_name = SProxy :: SProxy "name"
+
+-- lens
+_name = prop (SProxy :: SProxy "name")
+```
+ 
 ## 3. Imports
 
 ### 3.1. Group imported modules by origin
