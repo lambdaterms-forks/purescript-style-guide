@@ -77,7 +77,6 @@ Code blocks should be indented with **2 spaces**.
 #### Exceptions
 
 * [Nested record and array literals should be indented **4 spaces**.](#113-doubly-indent-nested-record-or-array-literals)
-* `let` bindings should be indented **4 spaces** as well.
 
 ### 1.4. Separate top-level definitions with a blank line
 
