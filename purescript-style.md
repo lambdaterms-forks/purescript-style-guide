@@ -25,6 +25,7 @@ This style guide is licensed under the [Creative Commons Zero license](https://c
   * [1.12. Format export lists like arrays](#112-format-export-lists-like-arrays)
   * [1.13. Doubly indent nested record or array literals](#113-doubly-indent-nested-record-or-array-literals)
   * [1.14. Prefer case expressions over equational pattern matching](#114-prefer-case-expressions-over-equational-pattern-matching)
+  * [1.15. Type signatures](#115-type-signatures)
 - [2. Naming](#2-naming)
   * [2.1. Use camel case for function names](#21-use-camel-case-for-function-names)
   * [2.2. Use upper camel case for type names](#22-use-upper-camel-case-for-type-names)
@@ -222,6 +223,38 @@ When nesting record or array literals, the nested literal should be doubly inden
 ### 1.14. Prefer case expressions over equational pattern matching
 
 Case expressions should be used instead of equational pattern matching.
+
+### 1.15. Type signatures
+
+Usage of unicode is preffered but not required. If a given library uses unicode please keep consistent style and use unicode for all signature operators.
+
+Signatures should follow simple rule that all "operators" are used as prefixes and all "block indentation" is preserved as in code.
+
+Function signature:
+
+```purescript
+logShow
+  ∷ ∀ a eff
+  . Show a 
+  ⇒ a 
+  → Eff (console ∷ CONSOLE | eff) Unit
+logShow a = log (show a)
+```
+
+Type class signature:
+
+```purescript
+instance consCols
+  ∷ ( QueryCols s tail r'
+    , IsSymbol name
+    , RowLacks name r'
+    , RowCons name (Col s a) r' r
+    )
+  ⇒ QueryCols s (Cons name a tail) r
+  where
+  colsImpl _ = do
+      ...
+```
 
 #### Rationale
 
