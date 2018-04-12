@@ -48,7 +48,7 @@ This style guide is licensed under the [Creative Commons Zero license](https://c
 
 ### 1.1. Lines should be no longer than 80 characters
 
-Lines should not be longer than **80 characters**.
+Lines __should not__ be longer than **80 characters** but anything less than 100 columns is still acceptable.
 
 #### Rationale
 
