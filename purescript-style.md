@@ -24,7 +24,7 @@ This style guide is licensed under the [Creative Commons Zero license](https://c
   * [1.11. Precede items in arrays, records, and import lists with commas](#111-precede-items-in-arrays-records-and-import-lists-with-commas)
   * [1.12. Format export lists like arrays](#112-format-export-lists-like-arrays)
   * [1.13. Doubly indent nested record or array literals](#113-doubly-indent-nested-record-or-array-literals)
-  * [1.14. Prefer case expressions over equational pattern matching](#114-prefer-case-expressions-over-equational-pattern-matching)
+  * [1.14. __Disputable__: Prefer case expressions over equational pattern matching](#114-prefer-case-expressions-over-equational-pattern-matching)
   * [1.15. Type signatures](#115-type-signatures)
 - [2. Naming](#2-naming)
   * [2.1. Use camel case for function names](#21-use-camel-case-for-function-names)
@@ -34,7 +34,7 @@ This style guide is licensed under the [Creative Commons Zero license](https://c
   * [2.5. Prefer singular for module names](#25-prefer-singular-for-module-names)
   * [2.6. Use underscore when naming SProxy and optics](#26-use-underscore-when-naming-sproxy-and-optics)
 - [3. Obsolete - use purs ide formatting only: Imports](#3-imports)
-  * [3.1. Obsolete: Group imported modules by origin](#31-group-imported-modules-by-origin)
+  * [3.1. __Obsolete__: Group imported modules by origin](#31-group-imported-modules-by-origin)
   * [3.2. Sort imports alphabetically](#32-sort-imports-alphabetically)
   * [3.3. Qualify imports or explicitly list imported symbols](#33-qualify-imports-or-explicitly-list-imported-symbols)
 - [4. Comments](#4-comments)
@@ -224,6 +224,26 @@ When nesting record or array literals, the nested literal should be doubly inden
 
 Case expressions should be used instead of equational pattern matching.
 
+#### Rationale
+
+If a function needs to be renamed when using a case expression in lieu of equational
+pattern maching, only a single edit needs to be made.
+
+#### Exceptions
+
+When matching multiple patterns, using equational pattern matching may be preferable.
+
+#### Examples
+
+```purescript
+catMaybes :: forall a. List (Maybe a) -> List a
+catMaybes =
+  case _ of
+    Nil -> Nil
+    Nothing : xs -> catMaybes xsUse the
+    Just x : xs -> x : catMaybes xs
+```
+
 ### 1.15. Type signatures
 
 Usage of unicode is preffered but not required. If a given library uses unicode please keep consistent style and use unicode for all signature operators.
@@ -254,26 +274,6 @@ instance consCols
   where
   colsImpl _ = do
       ...
-```
-
-#### Rationale
-
-If a function needs to be renamed when using a case expression in lieu of equational
-pattern maching, only a single edit needs to be made.
-
-#### Exceptions
-
-When matching multiple patterns, using equational pattern matching may be preferable.
-
-#### Examples
-
-```purescript
-catMaybes :: forall a. List (Maybe a) -> List a
-catMaybes =
-  case _ of
-    Nil -> Nil
-    Nothing : xs -> catMaybes xsUse the
-    Just x : xs -> x : catMaybes xs
 ```
 
 ## 2. Naming
