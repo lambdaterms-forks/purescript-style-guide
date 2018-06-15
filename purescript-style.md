@@ -33,10 +33,7 @@ This style guide is licensed under the [Creative Commons Zero license](https://c
   * [2.4. Do not use all capitals for acronyms](#24-do-not-use-all-capitals-for-acronyms)
   * [2.5. Prefer singular for module names](#25-prefer-singular-for-module-names)
   * [2.6. Use underscore when naming SProxy and optics](#26-use-underscore-when-naming-sproxy-and-optics)
-- [3. Obsolete - use purs ide formatting only: Imports](#3-imports)
-  * [3.1. __Obsolete__: Group imported modules by origin](#31-group-imported-modules-by-origin)
-  * [3.2. Sort imports alphabetically](#32-sort-imports-alphabetically)
-  * [3.3. Qualify imports or explicitly list imported symbols](#33-qualify-imports-or-explicitly-list-imported-symbols)
+- [3. Leave imports formatting to `purs ide`
 - [4. Comments](#4-comments)
   * [4.1. Use Markdown syntax in documentation comments](#41-use-markdown-syntax-in-documentation-comments)
   * [4.2. Comment every exported definition](#42-comment-every-exported-definition)
@@ -363,30 +360,7 @@ _name = prop (SProxy :: SProxy "name")
  
 ## 3. Imports
 
-### 3.1. Group imported modules by origin
-
-Imports should be grouped in the following order:
-
-1. the `Prelude`
-2. other third-party imports
-3. local application or library imports
-
-### 3.2. Sort imports alphabetically
-
-The imports in each import group should be sorted alphabetically by module name.
-
-### 3.3. Qualify imports or explicitly list imported symbols
-
-Imported modules should either always be qualified or have explicit import lists.
-
-#### Rationale
-
-This makes your code more robust against changes in imported modules. It also makes
-your code compile without warnings.
-
-#### Exceptions
-
-The `Prelude` does not need to be qualified or have an implicit import list.
+Leave formatting of imports to `purs ide`.
 
 ## 4. Comments
 
